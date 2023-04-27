@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "my-first-tg-bot"
+version = "0.1.0"
+description = "its mostly for learning, but its real bot already"
+authors = ["Loginov <itsmeegorloginov@gmail.com>"]
+readme = "README.md"
+packages = [{include = "my_first_tg_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
