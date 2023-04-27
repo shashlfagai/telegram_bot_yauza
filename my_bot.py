@@ -60,14 +60,35 @@ def message(message):
     elif message.text == 'Информация по доставке':
         keyboardgostart = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Быстрая доставка по Москве, в пределах МКАД']])
-        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Доставка по России!']])
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Доставка по России и в ближайшее модмосковье']])
         keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Вернуться в главное меню!']])
         bot.send_message(message.chat.id, 'Куда нужно доставить?',  reply_markup=keyboardgostart)
 
 #Функционал кнопки "Подарочный сертификат" 
     elif message.text == 'Подарочный сертификат':
         keyboardgostart = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Заказать подарочный сертификат!']])
         keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Вернуться в главное меню!']])
         bot.send_message(message.chat.id, 'Для оформления сертификата нам потребуется следующая информация:\nОт кого\nКому\nИ куда направить готовый электронный сертификат\n\nОплатить заказ можно онлайн переводом по номеру телефона или наличными в магазине YAUZA STORE.', reply_markup=keyboardgostart)
 
+#Задаем функционал кнопкам в подменю "Информация по доставке"
+#Функционал кнопки "Быстрая доставка по Москве, в пределах МКАД" 
+    elif message.text == 'Быстрая доставка по Москве, в пределах МКАД':
+        keyboardgostart = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Вернуться в главное меню!']])
+        bot.send_message(message.chat.id, 'Мы отправляем заказы по Москве, в пределах МКАД курьерской службой (+300₽)\nПризаказе до 6 часов вечера, доставка возможна в день заказа', reply_markup=keyboardgostart)
+
+#Функционал кнопки "Доставка по России и в ближайшее модмосковье" 
+    elif message.text == 'Доставка по России и в ближайшее модмосковье':
+        keyboardgostart = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Вернуться в главное меню!']])
+        bot.send_message(message.chat.id, 'В ближайшее Подмосковье и в другие города мы доставляем заказы службой доставки сдэк до пункта выдачи (+300₽)', reply_markup=keyboardgostart)
+
+#Задаем функционал кнопкам в подменю "Подарочный сертификат"
+#Функционал кнопки "Заказать подарочный сертификат!" 
+    elif message.text == 'Заказать подарочный сертификат!':
+        keyboardgostart = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboardgostart.add(*[types.KeyboardButton(name) for name in ['Вернуться в главное меню!']])
+        bot.send_message(message.chat.id, 'Пожалуйста, напишите следующее:\nОт чьего минеи будет вручен сертификат\nКому преднозначается сертификат\nКуда направить готовый электронный сертификат (почта, мэссенджер, и т.д.)', reply_markup=keyboardgostart)
+        
 bot.polling(none_stop=True, interval=0)
